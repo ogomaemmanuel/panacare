@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -112,9 +111,14 @@ class _LoginPageState extends State<LoginPage> {
                           child: Center(child: Text("Log In"))),
                     ),
                   ),
+
+
+
                   Padding(
                     padding: const EdgeInsets.only(top: 24.0),
-                    child: InkWell(child: const Text("Trouble logging in ?",style: TextStyle(decoration: TextDecoration.underline, color: Colors.black)), onTap: () => {}),
+                    child: InkWell(
+
+                        child: const Text("Trouble logging in ?",style: TextStyle(decoration: TextDecoration.underline, color: Colors.black)), onTap: () => {}),
                   )
                 ],
               )),

@@ -56,7 +56,7 @@ class SignUpPage extends StatelessWidget {
                     children:  [
                       InkWell(
                         onTap: ()=> Navigator.push(context,
-                        MaterialPageRoute(builder: (context)=>PatientSignUpPage())
+                        MaterialPageRoute(builder: (context)=>const PatientSignUpPage())
                         ),
                         child: const ListTile(
                           contentPadding: EdgeInsets.only(left: 0.0),
@@ -67,7 +67,7 @@ class SignUpPage extends StatelessWidget {
                           trailing: Icon(Icons.arrow_forward_ios),
                         ),
                       ),
-                      ListTile(
+                      const ListTile(
                         contentPadding: EdgeInsets.only(left: 0.0),
                         leading: Icon(Icons.account_circle_outlined),
                         title: Text("Doctor Profile"),

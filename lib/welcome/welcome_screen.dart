@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreenSlide extends StatelessWidget {
   final String text;
   final String imageLocation;
 
-  const WelcomeScreen(
+  const WelcomeScreenSlide(
       {super.key, required this.text, required this.imageLocation});
 
   @override

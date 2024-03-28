@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart'
     show FaIcon, FontAwesomeIcons;
+import 'package:panacare/home/home_page.dart';
 import 'package:pinput/pinput.dart';
 
 class PatientSignUpPage extends StatefulWidget {
@@ -33,6 +34,14 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
 
   _goToBack(BuildContext context) {
     Navigator.pop(context);
+  }
+
+  _goToHomePage(BuildContext context, String pin) {
+    setState(() {
+      verificationCode = pin;
+    });
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) =>  HomePage()));
   }
 
   Widget _buildFullNameInput() {
@@ -158,7 +167,7 @@ class _PatientSignUpPageState extends State<PatientSignUpPage> {
           child: Pinput(
             autofocus: true,
             mainAxisAlignment: MainAxisAlignment.start,
-            onCompleted: (pin) => verificationCode = pin,
+            onCompleted: (pin) => _goToHomePage(context, pin),
           ),
         ),
         Padding(

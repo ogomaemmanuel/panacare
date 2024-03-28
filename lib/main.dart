@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:panacare/auth/login.dart';
@@ -17,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -60,17 +60,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  static const screens = <WelcomeScreen>[
-    WelcomeScreen(
+  static const screens = <WelcomeScreenSlide>[
+    WelcomeScreenSlide(
       text:
           "Find the best doctor, connect to the doctor and book an appointment",
       imageLocation: "assets/welcome/screen1.png",
     ),
-    WelcomeScreen(
+    WelcomeScreenSlide(
       text: "Find a patient, connect with them and schedule an appointment",
       imageLocation: "assets/welcome/screen2.png",
     ),
-    WelcomeScreen(
+    WelcomeScreenSlide(
       text:
           "Receive an e-prescription from your doctor and a pharmacy suggestion for your ease",
       imageLocation: "assets/welcome/screen3.png",

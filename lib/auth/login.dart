@@ -65,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                 children: [
                   TextFormField(
+                  autofocus: true,
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         label: Text("Email or phone number")),

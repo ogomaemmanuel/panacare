@@ -60,7 +60,7 @@ class SignUpPage extends StatelessWidget {
                         ),
                         child: const ListTile(
                           contentPadding: EdgeInsets.only(left: 0.0),
-                          leading: Icon(Icons.account_circle_outlined),
+                          leading: FaIcon(FontAwesomeIcons.hospitalUser),
                           title: Text("Patient Profile"),
                           subtitle:
                               Text("Access all patient resources at no cost"),
@@ -69,7 +69,7 @@ class SignUpPage extends StatelessWidget {
                       ),
                       const ListTile(
                         contentPadding: EdgeInsets.only(left: 0.0),
-                        leading: Icon(Icons.account_circle_outlined),
+                        leading: FaIcon(FontAwesomeIcons.stethoscope),
                         title: Text("Doctor Profile"),
                         subtitle: Text(
                             "Let patients find you, connect with you and book an appointment with you"),

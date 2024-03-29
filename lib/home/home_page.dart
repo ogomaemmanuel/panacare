@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:panacare/home/patient_home_tabview.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,8 +19,10 @@ class _HomePageState extends State<HomePage> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
+        resizeToAvoidBottomInset : false,
         appBar: AppBar(
             elevation: 5,
+
             automaticallyImplyLeading: false,
             // leadingWidth: 0,
             title: const Row(
@@ -31,7 +34,8 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: [
                         Image(
-                          image: AssetImage("assets/home/login_user_profile.png"),
+                          image:
+                              AssetImage("assets/home/login_user_profile.png"),
                           height: 36.0,
                         ),
                         Padding(
@@ -60,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 )),
-      
+
                 Expanded(
                   child: Column(
                     children: [
@@ -70,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-      
+
                 Expanded(
                     child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -79,12 +83,19 @@ class _HomePageState extends State<HomePage> {
                 // Image(image: AssetImage("assets/Panacare-High-res.png"),height: 36.0),
               ],
             )),
-
+        body: TabBarView(
+          children: [
+            PatientHomeTabBarView(),
+            Icon(FontAwesomeIcons.userDoctor),
+            Icon(FontAwesomeIcons.streetView),
+            Icon(Icons.credit_card)
+          ],
+        ),
         bottomNavigationBar: const TabBar(
           tabs: <Widget>[
             Tab(
               text: "Home",
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.home_outlined),
             ),
             Tab(
               text: "Providers",
@@ -96,7 +107,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Tab(
               text: "Packages",
-              icon:  Icon(Icons.credit_card),
+              icon: Icon(Icons.credit_card),
             )
           ],
         ),

@@ -29,26 +29,31 @@ class PatientHomeTabBarView extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 18.0),
-                child: const Stack(
-                  children: [
-                    Image(
-                      fit: BoxFit.fitWidth,
-                      image: AssetImage("assets/home/patient_home_banner.png"),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 16.0, top: 16),
-                      child: SizedBox(
-                        width: 199.0,
-                        child: Text(
-                          "Exceptional Care for you and your family",
-                          style: TextStyle(
-                              fontSize: 18.0,
-                              color: Color.fromRGBO(41, 170, 225, 1),
-                              fontWeight: FontWeight.bold),
-                        ),
+                child: Container(
+                  width: double.maxFinite,
+                  color: Colors.yellow,
+                  padding: EdgeInsets.zero,
+                  child: const Stack(
+                    children: [
+                      Image(
+                        fit: BoxFit.fitWidth,
+                        image: AssetImage("assets/home/patient_home_banner.png"),
                       ),
-                    )
-                  ],
+                      Padding(
+                        padding: EdgeInsets.only(left: 16.0, top: 16),
+                        child: SizedBox(
+                          width: 199.0,
+                          child: Text(
+                            "Exceptional Care for you and your family",
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                color: Color.fromRGBO(41, 170, 225, 1),
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
               Row(

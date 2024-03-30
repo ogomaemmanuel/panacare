@@ -15,7 +15,7 @@ class SignUpPage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.only(left:36.0, right: 36.0,top:16.0),
             child: Column(
               children: [
                 Row(
@@ -37,7 +37,9 @@ class SignUpPage extends StatelessWidget {
                         child: Text(
                       "What kind of profile would you like to create today ?",
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20.0),
+                          fontWeight: FontWeight.w600,
+                          color: Color.fromRGBO(120, 59, 99, 1),
+                          fontSize: 16.0),
                     ))
                   ],
                 ),
@@ -61,7 +63,11 @@ class SignUpPage extends StatelessWidget {
                         child: const ListTile(
                           contentPadding: EdgeInsets.only(left: 0.0),
                           leading: FaIcon(FontAwesomeIcons.hospitalUser),
-                          title: Text("Patient Profile"),
+                          title: Text("Patient Profile",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500
+                          ),
+                          ),
                           subtitle:
                               Text("Access all patient resources at no cost"),
                           trailing: Icon(Icons.arrow_forward_ios),
@@ -70,7 +76,13 @@ class SignUpPage extends StatelessWidget {
                       const ListTile(
                         contentPadding: EdgeInsets.only(left: 0.0),
                         leading: FaIcon(FontAwesomeIcons.stethoscope),
-                        title: Text("Doctor Profile"),
+                        title: Text("Doctor Profile",
+
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500
+                          ),
+
+                        ),
                         subtitle: Text(
                             "Let patients find you, connect with you and book an appointment with you"),
                         trailing: Icon(Icons.arrow_forward_ios),

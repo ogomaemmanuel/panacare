@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:panacare/home/packages_tabview.dart';
 import 'package:panacare/home/patient_home_tabview.dart';
 
 class HomePage extends StatefulWidget {
@@ -88,7 +89,7 @@ class _HomePageState extends State<HomePage> {
             PatientHomeTabBarView(),
             Icon(FontAwesomeIcons.userDoctor),
             Icon(FontAwesomeIcons.streetView),
-            Icon(Icons.credit_card)
+            PackagesTabview()
           ],
         ),
         bottomNavigationBar: const TabBar(

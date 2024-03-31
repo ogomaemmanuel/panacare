@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:panacare/home/package_card.dart';
 
 class PackagesTabview extends StatelessWidget {
+  const PackagesTabview({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -10,7 +12,7 @@ class PackagesTabview extends StatelessWidget {
           padding: const EdgeInsets.only(left: 36.0, right: 36.0, top: 16),
           child: Column(
             children: [
-              Row(
+              const Row(
                 children: [
                   Text(
                     "Welcome",
@@ -19,8 +21,8 @@ class PackagesTabview extends StatelessWidget {
                   )
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 23.0, top: 7.0),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 23.0, top: 7.0),
                 child: Row(children: [
                   Flexible(
                     child: Text(

@@ -1,13 +1,13 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:panacare/home/doctors_search_tabview.dart';
 import 'package:panacare/home/packages_tabview.dart';
 import 'package:panacare/home/patient_home_tabview.dart';
+import 'package:panacare/home/visits_tabview.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _HomePageState();
@@ -20,10 +20,9 @@ class _HomePageState extends State<HomePage> {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        resizeToAvoidBottomInset : false,
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
             elevation: 5,
-
             automaticallyImplyLeading: false,
             // leadingWidth: 0,
             title: const Row(
@@ -35,9 +34,11 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: [
                         Image(
+
                           image:
                               AssetImage("assets/home/login_user_profile.png"),
                           height: 36.0,
+
                         ),
                         Padding(
                           padding: EdgeInsets.only(left: 4),
@@ -84,14 +85,17 @@ class _HomePageState extends State<HomePage> {
                 // Image(image: AssetImage("assets/Panacare-High-res.png"),height: 36.0),
               ],
             )),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
             PatientHomeTabBarView(),
-            Icon(FontAwesomeIcons.userDoctor),
-            Icon(FontAwesomeIcons.streetView),
+            DoctorsSearchPage(),
+            VisitsPage(),
             PackagesTabview()
           ],
         ),
+
+        //ToDo wrap in NavigationBar instead of TabBar for more control as in
+        //https://api.flutter.dev/flutter/material/NavigationBar-class.html
         bottomNavigationBar: const TabBar(
           tabs: <Widget>[
             Tab(

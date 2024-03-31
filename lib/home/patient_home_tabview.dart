@@ -1,12 +1,13 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PatientHomeTabBarView extends StatelessWidget {
+  const PatientHomeTabBarView({super.key});
+
   BoxDecoration _cardBorderRadius() {
     return BoxDecoration(
-      color: Color.fromRGBO(41, 170, 225, 1),
+      color: const Color.fromRGBO(41, 170, 225, 1),
       borderRadius: BorderRadius.circular(5),
     );
   }
@@ -20,8 +21,8 @@ class PatientHomeTabBarView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 22.0, bottom: 22.0),
+              const Padding(
+                padding: EdgeInsets.only(top: 22.0, bottom: 22.0),
                 child: Text(
                   "Successful!",
                   style: TextStyle(color: Color.fromRGBO(41, 170, 225, 1), fontSize: 14),
@@ -31,13 +32,14 @@ class PatientHomeTabBarView extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 18.0),
                 child: Container(
                   width: double.maxFinite,
-                  color: Colors.yellow,
                   padding: EdgeInsets.zero,
                   child: const Stack(
                     children: [
                       Image(
-                        fit: BoxFit.fitWidth,
-                        image: AssetImage("assets/home/patient_home_banner.png"),
+                        fit: BoxFit.cover,
+                        width:double.maxFinite,
+                        image: AssetImage("assets/home/patient_home_banner.png"
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 16.0, top: 16),
@@ -63,7 +65,9 @@ class PatientHomeTabBarView extends StatelessWidget {
                       child: Padding(
                     padding: const EdgeInsets.only(right: 10.0),
                     child: Container(
-                        child: Column(
+                        height: 292,
+                        decoration: _cardBorderRadius(),
+                        child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image(
@@ -71,7 +75,7 @@ class PatientHomeTabBarView extends StatelessWidget {
                                 width: 34.37,
                                 height: 32.48),
                             Padding(
-                              padding: const EdgeInsets.only(top: 7.4),
+                              padding: EdgeInsets.only(top: 7.4),
                               child: Text(
                                 "Find A Doctor",
                                 style: TextStyle(
@@ -79,9 +83,7 @@ class PatientHomeTabBarView extends StatelessWidget {
                               ),
                             ),
                           ],
-                        ),
-                        height: 292,
-                        decoration: _cardBorderRadius()),
+                        )),
                   )),
                   Expanded(
                     child: Column(
@@ -111,13 +113,16 @@ class PatientHomeTabBarView extends StatelessWidget {
                               )),
                         ),
                         Container(
-                          child: Column(
+                          height: 135,
+                          width: 154,
+                          decoration: _cardBorderRadius(),
+                          child: const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(FontAwesomeIcons.hospital,
                                   size: 33, color: Colors.white),
                               Padding(
-                                padding: const EdgeInsets.only(top: 7.4),
+                                padding: EdgeInsets.only(top: 7.4),
                                 child: Text(
                                   "Find a Hospital",
                                   style: TextStyle(
@@ -126,9 +131,6 @@ class PatientHomeTabBarView extends StatelessWidget {
                               ),
                             ],
                           ),
-                          height: 135,
-                          width: 154,
-                          decoration: _cardBorderRadius(),
                         )
                       ],
                     ),
@@ -141,13 +143,13 @@ class PatientHomeTabBarView extends StatelessWidget {
                   width: double.maxFinite,
                   height: 81.0,
                   decoration: _cardBorderRadius(),
-                  child: (Column(
+                  child: (const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(FontAwesomeIcons.calendarDays,
                           size: 30, color: Colors.white),
                       Padding(
-                        padding: const EdgeInsets.only(top: 7.4),
+                        padding: EdgeInsets.only(top: 7.4),
                         child: Text(
                           "Book Appointment",
                           style: TextStyle(color: Colors.white, fontSize: 13),

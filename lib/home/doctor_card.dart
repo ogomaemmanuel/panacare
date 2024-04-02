@@ -16,7 +16,7 @@ class DoctorCard extends StatelessWidget {
           CircleAvatar(
             radius: 41,
             child:
-                Image(image: AssetImage("assets/home/doctor_placeholder.png")),
+            Image(image: AssetImage("assets/home/doctor_placeholder.png")),
           ),
 
           Text(
@@ -50,10 +50,10 @@ class DoctorCard extends StatelessWidget {
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             ...List.generate(
                 5,
-                (index) => Icon(
-                      Icons.star,
-                      color: Colors.blue,
-                    )),
+                    (index) => Icon(
+                  Icons.star,
+                  color: Colors.blue,
+                )),
             Text("9.7(700)")
           ]),
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:panacare/home/visit_tile.dart';
 class VisitsPage extends StatefulWidget {
   const VisitsPage({super.key});
@@ -10,6 +11,9 @@ class VisitsPage extends StatefulWidget {
 }
 
 class _VisitsPageState extends State<VisitsPage> {
+  _goToBack(BuildContext context) {
+    Navigator.pop(context);
+  }
   List<Visit> visits = [
     Visit(
         visitDate: DateTime.now(),
@@ -41,6 +45,20 @@ class _VisitsPageState extends State<VisitsPage> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
+
+                  Row(
+                    children: [
+                      Padding(
+                          padding: const EdgeInsets.only(bottom: 24.0),
+                          child: IconButton(
+                            style: IconButton.styleFrom(
+                                foregroundColor:  const HSLColor.fromAHSL(1.0, 0, 0, 0).toColor(),
+                                backgroundColor: const HSLColor.fromAHSL(1.0, 192.0, 0.82, 0.90).toColor()),
+                            onPressed: () => _goToBack(context),
+                            icon: const FaIcon(FontAwesomeIcons.arrowLeftLong),
+                          ))
+                    ],
+                  ),
                   const Row(
                     children: [
                       Text(
@@ -58,7 +76,7 @@ class _VisitsPageState extends State<VisitsPage> {
                         Flexible(
                           child: TextField(
                             decoration: InputDecoration(
-                              constraints: BoxConstraints(maxHeight:47,maxWidth: 318),
+                              constraints: BoxConstraints(maxHeight:47),
                                 labelText: "Search Location",
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.all(Radius.circular(49.0)),

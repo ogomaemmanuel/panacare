@@ -143,7 +143,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () => _goToLoginPage(),
                     child: const Text("Login")),
                 OutlinedButton(
-
                     onPressed: () => _goToSignUpPage(),
                     style: TextButton.styleFrom(
                         foregroundColor: Colors.black,

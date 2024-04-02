@@ -76,7 +76,7 @@ class _VisitsPageState extends State<VisitsPage> {
                         Flexible(
                           child: TextField(
                             decoration: InputDecoration(
-                              constraints: BoxConstraints(maxHeight:47,maxWidth: 318),
+                              constraints: BoxConstraints(maxHeight:47),
                                 labelText: "Search Location",
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.all(Radius.circular(49.0)),

@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:panacare/home/doctor_card.dart';
 
@@ -17,30 +17,46 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
   _goToBack(BuildContext context) {
     Navigator.pop(context);
   }
+
+  List<Doctor> searchDoctors() {
+    return List.generate(
+        5,
+        (index) => Doctor(
+            id: "10",
+            name: "Dr. James Dew",
+            imageUrl: "assets/home/doctor_placeholder.png",
+            speciality: "Dermatologist",
+            isAvailableToday: true,
+            rating: 5,
+            ratingCount: 400));
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: NestedScrollView(
-        floatHeaderSlivers: true,
-        body: Padding(
-          padding: EdgeInsets.only(top: 36.0, left: 36, right: 36),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Padding(
-                      padding: const EdgeInsets.only(bottom: 24.0),
-                      child: IconButton(
-                        style: IconButton.styleFrom(
-                            foregroundColor:  const HSLColor.fromAHSL(1.0, 0, 0, 0).toColor(),
-                            backgroundColor: const HSLColor.fromAHSL(1.0, 192.0, 0.82, 0.90).toColor()),
-                        onPressed: () => _goToBack(context),
-                        icon: const FaIcon(FontAwesomeIcons.arrowLeftLong),
-                      ))
-                ],
-              ),
-
-              const Row(children: [
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 36.0),
+          child: CustomScrollView(slivers: [
+            SliverToBoxAdapter(
+                child: Row(
+              children: [
+                Padding(
+                    padding: const EdgeInsets.only(bottom: 16.0),
+                    child: IconButton(
+                      style: IconButton.styleFrom(
+                          foregroundColor:
+                              const HSLColor.fromAHSL(1.0, 0, 0, 0).toColor(),
+                          backgroundColor:
+                              const HSLColor.fromAHSL(1.0, 192.0, 0.82, 0.90)
+                                  .toColor()),
+                      onPressed: () => _goToBack(context),
+                      icon: const FaIcon(FontAwesomeIcons.arrowLeftLong),
+                    ))
+              ],
+            )),
+            const SliverToBoxAdapter(
+              child: Row(children: [
                 Flexible(
                   child: Text(
                     "First things first, which Doctor you would like to schedule an appointment with.",
@@ -51,7 +67,30 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
                   ),
                 )
               ]),
-              Row(
+            ),
+            const SliverToBoxAdapter(
+              child:  Padding(
+                padding: EdgeInsets.only(top: 12),
+                child: Row(
+                  children: [
+                    Flexible(
+                      child: TextField(
+                        decoration: InputDecoration(
+                            constraints: BoxConstraints(maxHeight:47,maxWidth: 318),
+                            labelText: "Search Location",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(49.0)),
+                            ),
+                            prefixIcon: Icon(Icons.search)),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+
+            SliverToBoxAdapter(
+              child: Row(
                 children: [
                   Expanded(
                     child: Padding(
@@ -92,7 +131,9 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
                   ),
                 ],
               ),
-              Row(
+            ),
+            SliverToBoxAdapter(
+              child: Row(
                 children: [
                   Expanded(
                     child: Container(
@@ -129,34 +170,67 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
                   ),
                 ],
               ),
-             Flexible(child: Row(
-                children: [Text("New Search Results")],
-              )),
-              Expanded(
-                flex: 8,
-                child: ListView(
+            ),
+            const SliverToBoxAdapter(
+                child: Row(
+              children: [Text("New Search Results")],
+            )),
+            SliverToBoxAdapter(
+              child: Container(
+                height: 240.0,
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  children: [
-                    Expanded(child: DoctorCard()), DoctorCard(), DoctorCard()],
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      child: DoctorCard()
+                    );
+                  },
                 ),
               ),
-             Flexible(child:  Row(
-                children: [Text("Saved providers")],
-              )),
-              Expanded(
-                flex: 8,
-                child: ListView(
+            ),
+
+            const SliverToBoxAdapter(
+                child: Row(
+                  children: [Text("New Search Results")],
+                )),
+            SliverToBoxAdapter(
+              child: Container(
+                height: 240.0,
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  children: [DoctorCard(), DoctorCard(), DoctorCard()],
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Container(
+                        child: DoctorCard()
+                    );
+                  },
                 ),
               ),
-            ],
-          ),
+            )
+
+          ]),
         ),
-        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return [];
-        },
       ),
     );
   }
+}
+
+class Doctor {
+  String id;
+  String name;
+  String imageUrl;
+  String speciality;
+  bool isAvailableToday;
+  int rating;
+  int ratingCount;
+
+  Doctor(
+      {required this.id,
+      required this.name,
+      required this.imageUrl,
+      required this.speciality,
+      required this.isAvailableToday,
+      required this.rating,
+      required this.ratingCount});
 }

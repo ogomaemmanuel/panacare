@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -69,17 +68,18 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
               ]),
             ),
             const SliverToBoxAdapter(
-              child:  Padding(
+              child: Padding(
                 padding: EdgeInsets.only(top: 12),
                 child: Row(
                   children: [
                     Flexible(
                       child: TextField(
                         decoration: InputDecoration(
-                            constraints: BoxConstraints(maxHeight:47),
+                            constraints: BoxConstraints(maxHeight: 47),
                             labelText: "Search Location",
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(49.0)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(49.0)),
                             ),
                             prefixIcon: Icon(Icons.search)),
                       ),
@@ -88,7 +88,6 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
                 ),
               ),
             ),
-
             SliverToBoxAdapter(
               child: Row(
                 children: [
@@ -138,7 +137,8 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
                   Expanded(
                     child: Container(
                       // color: Colors.blue,
-                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       decoration: BoxDecoration(
                           color: Color.fromRGBO(41, 170, 225, 1),
                           borderRadius: BorderRadius.circular(10)),
@@ -172,27 +172,16 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
               ),
             ),
             const SliverToBoxAdapter(
-                child: Row(
-              children: [Text("New Search Results")],
-            )),
-            SliverToBoxAdapter(
-              child: Container(
-                height: 240.0,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      child: DoctorCard()
-                    );
-                  },
-                ),
-              ),
-            ),
-
-            const SliverToBoxAdapter(
-                child: Row(
-                  children: [Text("New Search Results")],
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 14.0),
+                  child: Row(
+                                children: [Text("New Search Results",
+                                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500
+                                ),
+                                )],
+                              ),
                 )),
             SliverToBoxAdapter(
               child: Container(
@@ -201,14 +190,35 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 10,
                   itemBuilder: (context, index) {
-                    return Container(
-                        child: DoctorCard()
-                    );
+                    return Container(child: DoctorCard());
+                  },
+                ),
+              ),
+            ),
+            const SliverToBoxAdapter(
+                child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 14),
+              child: Row(
+                children: [
+                  Text(
+                    "Saved providers",
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
+                  )
+                ],
+              ),
+            )),
+            SliverToBoxAdapter(
+              child: Container(
+                height: 240.0,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Container(child: DoctorCard());
                   },
                 ),
               ),
             )
-
           ]),
         ),
       ),

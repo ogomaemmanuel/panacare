@@ -190,6 +190,7 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 10,
                   itemBuilder: (context, index) {
+                    debugPrint("item $index");
                     return Container(child: DoctorCard());
                   },
                 ),

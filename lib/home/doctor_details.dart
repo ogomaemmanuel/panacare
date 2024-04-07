@@ -176,7 +176,12 @@ class _DoctorDetailsPageState extends State<DoctorDetailsPage> {
                                                   showReviews = !showReviews;
                                                 })
                                               },
-                                          child: Text("View reviews"))
+                                          child: Text(
+                                           showReviews?"Description": "View reviews",
+                                            style: TextStyle(
+                                              color: Color.fromRGBO(41, 170, 225, 1)
+                                            ),
+                                          ))
                                     ]),
                               ),
                             ],
@@ -196,16 +201,17 @@ class _DoctorDetailsPageState extends State<DoctorDetailsPage> {
             ),
           ),
           SliverFillRemaining(
-              child: showReviews
-                  ? Padding(
-                      padding: EdgeInsets.only(left: 36.0, right: 36.0),
-                      child: const DoctorReviewsPage())
-                  :  const Padding(
-                        padding: EdgeInsets.only(left: 36.0, right: 36.0,top: 20.97),
-                        child: Text(
-                            "I believe my role as your Gynecologist is to help you better understand your health and help you navigate through treatment options to find the best management for your individual situation."),
-                      ),
-                    )
+            child: showReviews
+                ? Padding(
+                    padding: EdgeInsets.only(left: 36.0, right: 36.0),
+                    child: const DoctorReviewsPage())
+                : const Padding(
+                    padding:
+                        EdgeInsets.only(left: 36.0, right: 36.0, top: 20.97),
+                    child: Text(
+                        "I believe my role as your Gynecologist is to help you better understand your health and help you navigate through treatment options to find the best management for your individual situation."),
+                  ),
+          )
         ]));
   }
 }

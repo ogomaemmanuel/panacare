@@ -20,7 +20,7 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
   List<Doctor> searchDoctors() {
     return List.generate(
         5,
-        (index) => Doctor(
+            (index) => Doctor(
             id: "10",
             name: "Dr. James Dew",
             imageUrl: "assets/home/doctor_placeholder.png",
@@ -39,21 +39,21 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
           child: CustomScrollView(slivers: [
             SliverToBoxAdapter(
                 child: Row(
-              children: [
-                Padding(
-                    padding: const EdgeInsets.only(bottom: 16.0),
-                    child: IconButton(
-                      style: IconButton.styleFrom(
-                          foregroundColor:
+                  children: [
+                    Padding(
+                        padding: const EdgeInsets.only(bottom: 16.0),
+                        child: IconButton(
+                          style: IconButton.styleFrom(
+                              foregroundColor:
                               const HSLColor.fromAHSL(1.0, 0, 0, 0).toColor(),
-                          backgroundColor:
+                              backgroundColor:
                               const HSLColor.fromAHSL(1.0, 192.0, 0.82, 0.90)
                                   .toColor()),
-                      onPressed: () => _goToBack(context),
-                      icon: const FaIcon(FontAwesomeIcons.arrowLeftLong),
-                    ))
-              ],
-            )),
+                          onPressed: () => _goToBack(context),
+                          icon: const FaIcon(FontAwesomeIcons.arrowLeftLong),
+                        ))
+                  ],
+                )),
             const SliverToBoxAdapter(
               child: Row(children: [
                 Flexible(
@@ -79,7 +79,7 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
                             labelText: "Search Location",
                             border: OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(49.0)),
+                              BorderRadius.all(Radius.circular(49.0)),
                             ),
                             prefixIcon: Icon(Icons.search)),
                       ),
@@ -97,7 +97,7 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
                       child: Container(
                         // color: Colors.blue,
                         padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                        EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                         decoration: BoxDecoration(
                             color: Color.fromRGBO(41, 170, 225, 1),
                             borderRadius: BorderRadius.circular(10)),
@@ -138,7 +138,7 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
                     child: Container(
                       // color: Colors.blue,
                       padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       decoration: BoxDecoration(
                           color: Color.fromRGBO(41, 170, 225, 1),
                           borderRadius: BorderRadius.circular(10)),
@@ -175,13 +175,13 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 14.0),
                   child: Row(
-                                children: [Text("New Search Results",
-                                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500
-                                ),
-                                )],
-                              ),
+                    children: [Text("New Search Results",
+                      style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500
+                      ),
+                    )],
+                  ),
                 )),
             SliverToBoxAdapter(
               child: Container(
@@ -198,16 +198,16 @@ class _DoctorsSearchPageState extends State<DoctorsSearchPage> {
             ),
             const SliverToBoxAdapter(
                 child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 14),
-              child: Row(
-                children: [
-                  Text(
-                    "Saved providers",
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
-                  )
-                ],
-              ),
-            )),
+                  padding: EdgeInsets.symmetric(vertical: 14),
+                  child: Row(
+                    children: [
+                      Text(
+                        "Saved providers",
+                        style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
+                      )
+                    ],
+                  ),
+                )),
             SliverToBoxAdapter(
               child: Container(
                 height: 240.0,
@@ -238,10 +238,10 @@ class Doctor {
 
   Doctor(
       {required this.id,
-      required this.name,
-      required this.imageUrl,
-      required this.speciality,
-      required this.isAvailableToday,
-      required this.rating,
-      required this.ratingCount});
+        required this.name,
+        required this.imageUrl,
+        required this.speciality,
+        required this.isAvailableToday,
+        required this.rating,
+        required this.ratingCount});
 }

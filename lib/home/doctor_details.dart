@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:panacare/home/doctor_booking.dart';
 import 'package:panacare/home/doctor_reviews.dart';
 
 class DoctorDetailsPage extends StatefulWidget {
@@ -18,6 +19,10 @@ class _DoctorDetailsPageState extends State<DoctorDetailsPage> {
   _goToBack(BuildContext context) {
     Navigator.pop(context);
   }
+ _goToBookingPage(BuildContext context) {
+   Navigator.push(context,
+       MaterialPageRoute(builder: (context) => const DoctorBookingPage()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +35,7 @@ class _DoctorDetailsPageState extends State<DoctorDetailsPage> {
               fixedSize: const Size(318, 55),
               backgroundColor: const Color.fromRGBO(41, 170, 225, 1),
               foregroundColor: Colors.white),
-          onPressed: () => {},
+          onPressed: () => _goToBookingPage(context),
           child: const Text("Book Appointment"),
         ),
         body: CustomScrollView(slivers: [
@@ -176,7 +181,12 @@ class _DoctorDetailsPageState extends State<DoctorDetailsPage> {
                                                   showReviews = !showReviews;
                                                 })
                                               },
-                                          child: Text("View reviews"))
+                                          child: Text(
+                                           showReviews?"Description": "View reviews",
+                                            style: TextStyle(
+                                              color: Color.fromRGBO(41, 170, 225, 1)
+                                            ),
+                                          ))
                                     ]),
                               ),
                             ],
@@ -195,17 +205,21 @@ class _DoctorDetailsPageState extends State<DoctorDetailsPage> {
               ],
             ),
           ),
-          SliverFillRemaining(
-              child: showReviews
-                  ? Padding(
+          showReviews
+                ? SliverFillRemaining(
+                  child: const Padding(
                       padding: EdgeInsets.only(left: 36.0, right: 36.0),
-                      child: const DoctorReviewsPage())
-                  :  const Padding(
-                        padding: EdgeInsets.only(left: 36.0, right: 36.0,top: 20.97),
-                        child: Text(
-                            "I believe my role as your Gynecologist is to help you better understand your health and help you navigate through treatment options to find the best management for your individual situation."),
-                      ),
-                    )
+                      child: DoctorReviewsPage()),
+                )
+                : const SliverToBoxAdapter(
+                  child: Padding(
+                      padding:
+                          EdgeInsets.only(left: 36.0, right: 36.0, top: 20.97),
+                      child: Text(
+                          "I believe my role as your Gynecologist is to help you better understand your health and help you navigate through treatment options to find the best management for your individual situation."),
+                    ),
+                ),
+
         ]));
   }
 }

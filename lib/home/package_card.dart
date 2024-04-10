@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:panacare/subscription/payment_method_select_list.dart';
 
 class PackageCard extends StatelessWidget {
   Package package;
 
   PackageCard({super.key, required this.package});
+
+
+
+  _goToPayments(BuildContext context) {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const PaymentMethodsPage()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,26 +33,27 @@ class PackageCard extends StatelessWidget {
             ),
           ),
           Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-            Text(package.name,style: const TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 19.0
-            ),),
+            Text(
+              package.name,
+              style:
+                  const TextStyle(fontWeight: FontWeight.w600, fontSize: 19.0),
+            ),
           ]),
           Wrap(
             children: package.features
                 .map((feature) => (ListTile(
                       contentPadding: EdgeInsets.zero,
                       leading: const Icon(Icons.check,
-                      color:Color.fromRGBO(41, 170, 225, 1)
+                          color: Color.fromRGBO(41, 170, 225, 1)),
+                      title: Text(
+                        feature,
+                        style: const TextStyle(fontSize: 14.0),
                       ),
-                      title: Text(feature,style: const TextStyle(
-                        fontSize: 14.0
-                      ),),
                     )))
                 .toList(),
           ),
           TextButton(
-              onPressed: () => {},
+              onPressed: () => _goToPayments(context),
               style: TextButton.styleFrom(
                 minimumSize: const Size(219.0, 43.0),
                 foregroundColor: Colors.white,
@@ -62,6 +71,5 @@ class Package {
   List<String> features;
   String imageUrl;
 
-  Package(
-      {required this.name, required this.features, required this.imageUrl});
+  Package({required this.name, required this.features, required this.imageUrl});
 }

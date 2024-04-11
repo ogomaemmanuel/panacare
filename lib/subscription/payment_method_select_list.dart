@@ -132,7 +132,7 @@ class _PaymentMethodsPageState extends State<PaymentMethodsPage> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 24.0),
+          padding: const EdgeInsets.only(top: 24.0, bottom: 10.0),
           child: TextFormField(
             keyboardType: TextInputType.phone,
             autofocus: true,
@@ -141,6 +141,11 @@ class _PaymentMethodsPageState extends State<PaymentMethodsPage> {
             onSaved: (val) => phoneNumber = val!,
           ),
         ),
+        Row(children: [
+          Flexible(
+              child: Text(
+                  "This is an M-PESA registered number that the push notification will be sent to"))
+        ])
       ],
     );
   }

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HelpFeedbackPage extends StatefulWidget {
@@ -14,7 +12,8 @@ class HelpFeedbackPage extends StatefulWidget {
 
 class _HelpFeedbackPageState extends State<HelpFeedbackPage> {
   final formKey = GlobalKey<FormState>();
-
+  String? email;
+  String? subject;
   void _login() {
     final form = formKey.currentState;
     if (form?.validate() ?? false) {
@@ -24,8 +23,7 @@ class _HelpFeedbackPageState extends State<HelpFeedbackPage> {
 
   @override
   Widget build(BuildContext context) {
-    String email;
-    String? subject;
+
 
     return Scaffold(
       body: SafeArea(
@@ -55,7 +53,7 @@ class _HelpFeedbackPageState extends State<HelpFeedbackPage> {
                 ),
                 Row(
                   key: formKey,
-                  children: [
+                  children: const [
                     Flexible(
                         child: Text(
                             "If you're troubled by something, feel free to request information and advice online.",
@@ -68,28 +66,28 @@ class _HelpFeedbackPageState extends State<HelpFeedbackPage> {
                 Form(
                     child: Column(
                   children: [
-                    new Padding(
+                    Padding(
                       padding: const EdgeInsets.only(top: 20.0, bottom: 8.0),
-                      child: new TextFormField(
-                          decoration: new InputDecoration(
+                      child: TextFormField(
+                          decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                               labelText: "What is your name"),
                           onSaved: (val) => email = val!,
                           keyboardType: TextInputType.text),
                     ),
-                    new Padding(
+                    Padding(
                       padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                      child: new TextFormField(
-                          decoration: new InputDecoration(
+                      child: TextFormField(
+                          decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                               labelText: "Mobile Number"),
                           onSaved: (val) => email = val!,
                           keyboardType: TextInputType.phone),
                     ),
-                    new Padding(
+                    Padding(
                       padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                      child: new TextFormField(
-                          decoration: new InputDecoration(
+                      child: TextFormField(
+                          decoration: const InputDecoration(
                               alignLabelWithHint: true,
                               hintText: "Type here",
                               border: OutlineInputBorder(),
@@ -98,7 +96,7 @@ class _HelpFeedbackPageState extends State<HelpFeedbackPage> {
                           keyboardType: TextInputType.emailAddress),
                     ),
                     //Example found here https://blog.logrocket.com/creating-dropdown-list-flutter/
-                    new Padding(
+                    Padding(
                       padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                       child: DropdownButtonFormField(
                           decoration: InputDecoration(
@@ -114,16 +112,16 @@ class _HelpFeedbackPageState extends State<HelpFeedbackPage> {
                               subject = newValue!;
                             });
                           },
-                          items: [
-                            DropdownMenuItem(child: Text("USA"), value: "USA"),
+                          items: const [
+                            DropdownMenuItem(value: "USA", child: Text("USA")),
                           ]),
                     ),
-                    new Padding(
+                    Padding(
                       padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                      child: new TextFormField(
+                      child: TextFormField(
                           minLines: 6,
                           maxLines: null,
-                          decoration: new InputDecoration(
+                          decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                               labelText: "Email Address"),
                           onSaved: (val) => email = val!,
@@ -134,15 +132,15 @@ class _HelpFeedbackPageState extends State<HelpFeedbackPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Expanded(
-                          child: Container(
+                          child: SizedBox(
                             height: 55,
                             child: TextButton(
-                                onPressed: () => {},
+                                onPressed: () => _login(),
                                 style: TextButton.styleFrom(
                                     backgroundColor:
-                                        Color.fromRGBO(41, 170, 225, 1),
+                                        const Color.fromRGBO(41, 170, 225, 1),
                                     foregroundColor: Colors.white),
-                                child: Text("Continue")),
+                                child: const Text("Continue")),
                           ),
                         )
                       ],

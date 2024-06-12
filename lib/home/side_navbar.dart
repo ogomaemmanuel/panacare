@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:panacare/help/help_feedback.dart';
 
+import '../subscription/user_subscriptions.dart';
+
 class SideNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -65,10 +67,14 @@ class SideNavBar extends StatelessWidget {
             title: Text("Profile"),
           ),
           ListTile(
+            onTap: () => {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const UserSubscriptionsPage()))
+            },
             leading: Icon(Icons.credit_card),
             title: Text("My Subscriptions"),
           ),
-          ListTile(
+          const ListTile(
             leading: Icon(Icons.calendar_month_outlined),
             title: Text("Appointments"),
           ),
